@@ -156,8 +156,9 @@ def main():
 
     target_ref = pd.concat([ref_merge, target])
 
-    # Rename PLINK2 PC names - Hardcoded!
-    target_ref = target_ref.rename(columns={f'PC{i}_AVG': f'PC{i}' for i in range(1, 11)})
+    # Rename PLINK2 PC names 
+    # NB: Assumes PLINK2 input
+    target_ref = target_ref.rename(columns={f'PC{i}_AVG': f'PC{i}' for i in range(1, PC_N+1)})
 
     print(target_ref)
     print(target_ref['super_pop'].value_counts())
